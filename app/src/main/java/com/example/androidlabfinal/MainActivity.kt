@@ -20,6 +20,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 import com.squareup.picasso.Picasso
+import org.json.JSONArray
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             } else {
-                Toast.makeText(this, "Please Turn on your GPS location", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Please enable your location", Toast.LENGTH_LONG).show()
             }
         } else {
             requestPermission()
@@ -107,9 +108,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getJsonData(lat: String, long: String) {
-        val API_KEY = "7dca1674a10aeeddb54e09b7e638a0ff" // use your own api_key
+        val API_KEY = "137dab9a594d177067f155d6bcf1dd19" // use your own api_key
         val queue = Volley.newRequestQueue(this)
         val cityName = getCityName(lat.toDouble(), long.toDouble())
+
 
         val url =
             "https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}"
@@ -146,6 +148,7 @@ class MainActivity : AppCompatActivity() {
             weather_img.visibility = View.VISIBLE
         }
 
+        description.text = "" + response.getJSONArray("weather").getJSONObject(0).getString("description")
         city.text = "City Name: " + response.getString("name")
         country.text = "Country: " + response.getJSONObject("sys").getString("country")
         var tempr = response.getJSONObject("main").getString("temp")
@@ -156,7 +159,6 @@ class MainActivity : AppCompatActivity() {
     private fun getCityName(lat: Double, long: Double): String {
         var geoCoder = Geocoder(this, Locale.getDefault())
         var adress = geoCoder.getFromLocation(lat, long, 3)
-
         return adress.get(0).locality
     }
 

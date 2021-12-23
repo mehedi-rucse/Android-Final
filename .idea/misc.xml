@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/DailyWeather/Android-Final/app/src/main/res/drawable/gradient_bg.xml" value="0.26205128205128203" />
+        <entry key="..\:/Android/DailyWeather/Android-Final/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Harun/Desktop/AndroidLabFinal/app/src/main/res/drawable/gradient_bg.xml" value="0.240625" />
         <entry key="..\:/Users/Harun/Desktop/AndroidLabFinal/app/src/main/res/layout/activity_main.xml" value="0.25" />
       </map>

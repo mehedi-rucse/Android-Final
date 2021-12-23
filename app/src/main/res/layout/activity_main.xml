@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/gradient_bg"
-    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="30dp">
+    android:padding="20dp">
 
     <ImageView
         android:id="@+id/weather_img"
@@ -15,10 +15,22 @@
         android:visibility="invisible" />
 
     <TextView
-        android:id="@+id/city"
+        android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        android:text="Status :"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="City Name :"
         android:textColor="@color/white"
         android:textAllCaps="true"
@@ -57,5 +69,6 @@
         android:textAllCaps="true"
         android:textSize="20sp"
         android:textStyle="bold" />
+
 
 </LinearLayout>
